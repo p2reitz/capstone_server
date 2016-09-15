@@ -18,11 +18,11 @@ router.get('/posts', function (req, res) {
 });
 
 
-var personality_insights = watson.personality_insights({
-  username: 'lSsThtJbFWaE',
-  password: 'ab4e45fc-2ea3-4ba9-87b7-47f2cee09a21',
-  version: 'v2'
-});
+// var personality_insights = watson.personality_insights({
+//   username: 'lSsThtJbFWaE',
+//   password: 'ab4e45fc-2ea3-4ba9-87b7-47f2cee09a21',
+//   version: 'v2'
+// });
 
 
 module.exports = router;

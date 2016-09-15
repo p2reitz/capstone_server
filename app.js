@@ -7,7 +7,6 @@ var expressJwt=require('express-jwt');
 var logger = require('morgan');
 var index = require('./routes/index');
 require('dotenv').config();
-var watson = require('watson-developer-cloud');
 
 var users = require('./routes/users');
 var submit = require('./routes/submit');
@@ -20,6 +19,13 @@ app.use(bodyParser.urlencoded({
     extended: false
 }));
 app.use(cors());
+
+app.use(function(req, res, next) {
+    res.header("Access-Control-Allow-Origin", "*");
+    res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+    next();
+});
+
 
 // app.use(function(req, res, next){
 //   console.log(req.url, req.method);

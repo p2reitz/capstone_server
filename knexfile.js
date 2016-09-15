@@ -5,7 +5,7 @@ module.exports = {
 
   development: {
     client: 'postgres',
-    connection: process.env.DATABASE_URL || 'postgres://localhost/capstone'
+    connection: process.env.DATABASE_URL || 'postgres://localhost/reddit_clone'
   },
 
   production: {
