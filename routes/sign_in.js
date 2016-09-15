@@ -1,0 +1,39 @@
+'use strict':
+
+var express = require('express');
+var router = express.Router();
+var knex = require('../db/knex');
+var bcrypt = require('bcrypt');
+var resource = require('../models/resource');
+
+
+router.post('/', function(req, res, next){
+  var email = req.body.email;
+  resource.checkLogIn(req.body).then(function(validated){
+  knex('users').where({email: email.toLowerCase()}).then(function(data){
+    if(data.length === 0){
+      res.render('index', {wrongPassword: false, emailNotFound: true, error: false, emailMatch: req.body});
+    }
+    bcrypt.compare(req.body.password, data[0].password, function(err, result){
+      if(err){
+        console.log(err);
+      }
+      else {
+        if(result){
+          req.session.id = data[0].id;
+          req.session.first_name = data[0].first_name;
+          req.session.is_admin = data[0].is_admin;
+          req.session.household_id = data[0].household_id;
+          console.log(req.session);
+          res.redirect('/');
+        }
+        else{
+          res.render('index', {wrongPassword: true, emailNotFound: false, error: false, emailMatch: req.body});
+        }
+      }
+    });
+  });
+}).catch(function(err){
+      res.render('index', {error: err, emailNotFound: false, wrongPassword: false, emailMatch: req.body});
+  });
+});

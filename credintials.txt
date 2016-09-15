@@ -12,3 +12,13 @@
     "username": "99d06932-4af4-45ae-9c0f-3a2ac9fc33e7"
   }
 }
+
+
+
+  {
+  "credentials": {
+    "url": "https://gateway.watsonplatform.net/tone-analyzer/api",
+    "password": "DmXD1YbRXGAQ",
+    "username": "ddba5293-8d42-479a-9d54-c084393f8f6e"
+  }
+}
