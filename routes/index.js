@@ -4,6 +4,19 @@ var express = require('express');
 var router = express.Router();
 var knex = require('../db/knex.js');
 var watson = require('watson-developer-cloud');
+var request = require('request');
+
+
+router.post('/', function(req, res){
+  console.log('index.js: ', req.body);
+  res.json({hello:"hello"})
+// request('https://gateway.watsonplatform.net/personality-insights/api', function (error, response, body) {
+//   if (!error && response.statusCode === 200) {
+//     console.log(body); // Show the HTML for the Google homepage.
+//     res.json({body:body});
+//   }
+// });
+});
 
 
 router.get('/posts', function (req, res) {

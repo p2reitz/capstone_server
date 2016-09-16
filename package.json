@@ -4,7 +4,7 @@
   "description": "",
   "main": "app.js",
   "scripts": {
-    "start": "nodemon",
+    "start": "node app.js",
     "install": "knex migrate:latest",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -21,6 +21,7 @@
     "morgan": "^1.7.0",
     "nodemon": "^1.10.2",
     "pg": "^6.1.0",
+    "request": "^2.74.0",
     "watson-developer-cloud": "^2.3.2"
   }
 }
