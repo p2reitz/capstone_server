@@ -5,16 +5,12 @@ module.exports = {
 
   development: {
     client: 'postgres',
-    connection: process.env.DATABASE_URL || 'postgres://localhost/reddit_clone'
+    connection: process.env.DATABASE_URL || { user: 'me', database: 'philip-capstone' }
   },
 
   production: {
     client: 'pg',
-    connection: {
-      database: 'capstone',
-      user:     'username',
-      password: 'password'
-    },
+    connection: process.env.DATABASE_URL,
     pool: {
       min: 2,
       max: 10
