@@ -12,8 +12,9 @@ var personality_insights = watson.personality_insights({
     password: process.env.PIPASSWORD,
     version: 'v2'
  });
+ var email = req.body;
 
- personality_insights.profile(params, function(error, response) {
+ personality_insights.profile(email, function(error, response) {
   if (error)
     console.log('error:', error);
   else
