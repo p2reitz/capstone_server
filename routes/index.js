@@ -13,12 +13,13 @@ var personality_insights = watson.personality_insights({
     version: 'v2'
  });
  var email = req.body;
+ console.log('req.body: ', req.body);
 
  personality_insights.profile(email, function(error, response) {
   if (error)
-    console.log('error:', error);
+    res.json({err:error});
   else
-    console.log(JSON.stringify(response, null, 2));
+    res.json(response);
   }
 );
 
