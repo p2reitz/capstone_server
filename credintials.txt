@@ -1,9 +1,15 @@
-{
-  "credentials": {
-    "url": "https://gateway.watsonplatform.net/personality-insights/api",
-    "password": "lSsThtJbFWaE",
-    "username": "ab4e45fc-2ea3-4ba9-87b7-47f2cee09a21"
-  }
+module.exports = {
+  insights1 : {
+    "credentials": {
+      "url": "https://gateway.watsonplatform.net/personality-insights/api",
+      "password": "lSsThtJbFWaE",
+      "username": "ab4e45fc-2ea3-4ba9-87b7-47f2cee09a21"
+    },
+    
+
+}
+
+
 
 
   {
