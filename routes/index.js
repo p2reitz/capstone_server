@@ -21,7 +21,7 @@ var personality_insights = watson.personality_insights({
     res.status(500).json({err:error});
   }
   else
-    res.json(response.data);
+    res.json(response);
   }
 );
 
