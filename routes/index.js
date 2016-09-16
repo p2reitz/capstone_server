@@ -16,8 +16,9 @@ var personality_insights = watson.personality_insights({
  console.log('req.body: ', req.body);
 
  personality_insights.profile(email, function(error, response) {
-  if (error)
-    res.json({err:error});
+  if (error){
+    res.status(500).json({err:error});
+  }
   else
     res.json(response);
   }
