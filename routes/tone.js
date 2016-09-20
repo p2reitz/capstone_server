@@ -15,7 +15,10 @@ var tone_analyzer = watson.tone_analyzer({
   version_date: '2016-05-19 '
 });
 
-tone_analyzer.tone({ text: req.body },
+var bodyText = req.body;
+  console.log('req.body: ', req.body);
+
+tone_analyzer.tone({ text: bodyText },
   function(err, tone) {
     if (err) {
       res.status(500).json({err:err});
