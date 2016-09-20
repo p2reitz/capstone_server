@@ -27,3 +27,5 @@ tone_analyzer.tone({ text: bodyText },
     }
   });
 });
+
+module.exports = router;

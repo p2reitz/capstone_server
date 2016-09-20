@@ -34,7 +34,7 @@ app.use(cors());
 //   next();
 // });
 app.use('/', index);
-app.use('/insight', insight);
+app.use('/insights', insight);
 app.use('/tone', tone);
 app.use('/submit', submit);
 app.use('/users', expressJwt({secret:process.env.SECRET}), users);
