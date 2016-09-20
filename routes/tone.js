@@ -15,8 +15,8 @@ var tone_analyzer = watson.tone_analyzer({
   version_date: '2016-05-19 '
 });
 
-var bodyText = req.body;
-  console.log('req.body: ', req.body);
+var bodyText = req.body.text;
+  console.log('req.body: ', req.body.text);
 
 tone_analyzer.tone({ text: bodyText },
   function(err, tone) {
