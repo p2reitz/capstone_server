@@ -10,7 +10,7 @@ router.post('/sign_up', function(req, res, next) {
     bcrypt.hash(req.body.password, 8, function(err, hash){
       if(err){
         console.log(err);
-      } else {
+      } else if(hash){
         knex('users').insert({
           first_name: req.body.first_name.toLowerCase(),
           username: req.body.last_name.toLowerCase(),
@@ -36,6 +36,7 @@ router.post('/sign_up', function(req, res, next) {
             res.send(err);
         });
       }
+    });
 });
 
 
