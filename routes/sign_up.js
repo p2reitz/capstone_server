@@ -8,17 +8,14 @@ var bcrypt = require('bcrypt');
 
 router.post('/sign_up', function(req, res, next) {
     bcrypt.hash(req.body.password, 8, function(err, hash){
-      
-    })
-        .then(function(result) {
-            return knex('users').insert({
-                first_name: req.body.first_name.toLowerCase(),
-                username: req.body.last_name.toLowerCase(),
-                email: req.body.email,
-                password: result
-            }).returning('*');
-        })
-        .then(function(data) {
+      return knex('users').insert({
+          first_name: req.body.first_name.toLowerCase(),
+          username: req.body.last_name.toLowerCase(),
+          email: req.body.email,
+          password: hash
+          }).returning('*');
+          })
+          .then(function(data) {
           console.log('sign_up.js: data, ', data);
           var profile = {
               id: data[0].id,
