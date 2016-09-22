@@ -18,14 +18,14 @@ router.post('/sign_up', function(req, res, next) {
             }).returning('*');
         })
         .then(function(data) {
-          console.log(data);
+          console.log('sign_up.js: data, ', data);
           var profile = {
               id: data[0].id,
               first_name: data[0].first_name,
               last_name: data[0].last_name,
               email: data[0].email
           };
-          console.log(profile);
+          console.log('sign_up.js: profile, ', profile);
           var token = jwt.sign(profile, process.env.SECRET, {expiresIn: 432000});
           res.status(200).json({
               token: token
@@ -35,7 +35,7 @@ router.post('/sign_up', function(req, res, next) {
         .catch(function(err) {
             res.send(err);
         });
-}
+});
 
 
 
