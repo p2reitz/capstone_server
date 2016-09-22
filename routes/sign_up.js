@@ -4,17 +4,18 @@ var express = require('express');
 var router = express.Router();
 var knex = require('../db/knex.js');
 var jwt = require('jsonwebtoken');
-var hash = require('./hash');
 var bcrypt = require('bcrypt');
 
 router.post('/sign_up', function(req, res, next) {
-    hash(req.body.password)
+    bcrypt.hash(req.body.password, 8, function(err, hash){
+      
+    })
         .then(function(result) {
             return knex('users').insert({
                 first_name: req.body.first_name.toLowerCase(),
                 username: req.body.last_name.toLowerCase(),
                 email: req.body.email,
-                hash: result
+                password: result
             }).returning('*');
         })
         .then(function(data) {
