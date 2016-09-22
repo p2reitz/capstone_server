@@ -15,7 +15,7 @@ router.post('/', function(req, res){
   });
 
   var text = req.body;
-    console.log('req.body: ', req.body);
+    //console.log('req.body: ', req.body);
 
   personality_insights.profile(text, function(error, response) {
     if (error){

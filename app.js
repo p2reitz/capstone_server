@@ -9,7 +9,7 @@ var index = require('./routes/index');
 require('dotenv').config();
 
 var users = require('./routes/users');
-var submit = require('./routes/submit');
+var sign_up = require('./routes/sign_up');
 var insight = require('./routes/insight');
 var tone = require('./routes/tone');
 
@@ -36,7 +36,7 @@ app.use(cors());
 app.use('/', index);
 app.use('/insights', insight);
 app.use('/tone', tone);
-app.use('/submit', submit);
+app.use('/sign_up', sign_up);
 app.use('/users', expressJwt({secret:process.env.SECRET}), users);
 
 
