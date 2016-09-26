@@ -5,6 +5,7 @@ var bodyParser = require('body-parser');
 var cors = require('cors');
 var expressJwt=require('express-jwt');
 var logger = require('morgan');
+var favicon = require('favicon');
 var index = require('./routes/index');
 var api = require('./routes/api');
 require('dotenv').config();
@@ -22,7 +23,7 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({
     extended: false
 }));
-app.use(cors());
+//app.use(cors());
 
 app.use('/', index);
 app.use('/api', expressJwt({secret:'secret'}), api);

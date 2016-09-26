@@ -24,14 +24,14 @@ router.post('/', function(req, res, next) {
                                 password: hash
                             }).returning('*')
                             .then(function(data) {
-                                console.log('sign_up.js: data, ', data);
+                                console.log('signup.js: data, ', data);
                                 var profile = {
                                     id: data[0].id,
                                     first_name: data[0].first_name,
                                     last_name: data[0].last_name,
                                     email: data[0].email
                                 };
-                                console.log('sign_up.js: profile, ', profile);
+                                console.log('signup.js: profile, ', profile);
                                 var token = jwt.sign(profile, process.env.SECRET, {
                                     expiresIn: 432000
                                 });
