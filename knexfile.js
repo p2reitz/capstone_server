@@ -1,11 +1,13 @@
 // Update with your config settings.
 'use strict';
 
+require('dotenv').config();
+
 module.exports = {
 
   development: {
     client: 'postgres',
-    connection: process.env.DATABASE_URL || { user: 'me', database: 'philip-capstone' }
+    connection: process.env.DATABASE_URL
   },
 
   production: {

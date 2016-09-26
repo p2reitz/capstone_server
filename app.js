@@ -6,12 +6,14 @@ var cors = require('cors');
 var expressJwt=require('express-jwt');
 var logger = require('morgan');
 var index = require('./routes/index');
+var api = require('./routes/api');
 require('dotenv').config();
 
 var users = require('./routes/users');
-var sign_up = require('./routes/sign_up');
+var signup = require('./routes/signup');
 var insight = require('./routes/insight');
 var tone = require('./routes/tone');
+var signin = require('./routes/signin');
 
 var app = express();
 
@@ -22,23 +24,13 @@ app.use(bodyParser.urlencoded({
 }));
 app.use(cors());
 
-// app.use(function(req, res, next) {
-//     res.header("Access-Control-Allow-Origin", "*");
-//     res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
-//     next();
-// });
-
-
-// app.use(function(req, res, next){
-//   console.log(req.url, req.method);
-//   next();
-// });
 app.use('/', index);
+app.use('/api', expressJwt({secret:'secret'}), api);
 app.use('/insights', insight);
 app.use('/tone', tone);
-app.use('/sign_up', sign_up);
+app.use('/signup', signup);
 app.use('/users', expressJwt({secret:process.env.SECRET}), users);
-
+app.use('/signin', signin);
 
 
 // catch 404 and forward to error handler
@@ -50,9 +42,6 @@ app.use(function(req, res, next) {
 
 
 // error handlers
-
-// development error handler
-// will print stacktrace
 if (app.get('env') === 'development') {
     app.use(function(err, req, res, next) {
         console.log(err);

@@ -2,6 +2,7 @@
 
 var express = require('express');
 var router = express.Router();
+//var jwt = require('jsonwebtoken');
 //var knex = require('../db/knex.js');
 //var watson = require('watson-developer-cloud');
 //var request = require('request');
@@ -13,20 +14,28 @@ var router = express.Router();
 //     password: process.env.PIPASSWORD,
 //     version: 'v2'
 //   });
-//
-//   var text = req.body;
-//     console.log('req.body: ', req.body);
-//
-//   personality_insights.profile(text, function(error, response) {
-//     if (error){
-//       res.status(500).json({err:error});
-//     }else{
-//       res.json(response);
-//     }
-//   });
-//
 // });
 //
+// router.post('/authenticate', function(req, res, next) {
+//   if (!(req.body.email === profile.email && req.body.password === profile.password)) {
+//     res.status(401).send({message:'Wrong user or password'});
+//     return;
+//   }
+// });
+//   var profile = {
+//     first_name: 'John',
+//     last_name: 'Doe',
+//     email: 'john@doe.com',
+//     id: 123
+//   };
+//
+//   // We are sending the profile inside the token
+//   var token = jwt.sign(profile, 'secret');
+//   res.status(200).json({ token: token });
+// });
+
+
+
 //
 // router.get('/posts', function (req, res) {
 //   knex('posts')
