@@ -23,7 +23,7 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({
     extended: false
 }));
-//app.use(cors());
+app.use(cors());
 
 app.use('/', index);
 app.use('/api', expressJwt({secret:'secret'}), api);
