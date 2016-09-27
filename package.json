@@ -6,7 +6,7 @@
   "scripts": {
     "start": "node app.js",
     "dev": "nodemon app.js",
-    "install": "knex migrate:latest",
+    "install": "node_modules/.bin/knex migrate:latest",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Philip Reitz",
